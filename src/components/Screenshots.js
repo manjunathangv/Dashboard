@@ -31,13 +31,13 @@ export default function Report() {
     <div className={classes.report}>
       <div>
         {" "}
-        <img src={picture} alt="picture"></img>
+        <img src={picture} alt="pictureicon"></img>
         <div className="title">shot_1_attach.png</div>
         <button>View</button>
       </div>
       <div>
         {" "}
-        <img src={picture} alt="picture"></img>
+        <img src={picture} alt="pictureicon1"></img>
         <div className="title">shot_2_attach.png</div>
         <button>View</button>
       </div>
