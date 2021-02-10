@@ -1,0 +1,116 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body {
+  background-color: #382f9c;
+}
+.mainContainer {
+  display: flex !important;
+}
+.dashboard {
+  width: 90%;
+  margin: 0 auto;
+}
+.leftpanel {
+  height: 100vh;
+  width: 20vw;
+  background-color: #382f9c;
+  background-image: url("assets/sidebar_overlay.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  position: relative;
+}
+
+.logo {
+  padding: 25px 0px;
+}
+
+.dashboarditems li.active {
+  opacity: 1;
+}
+.panelicons {
+  padding-right: 20px;
+  vertical-align: bottom;
+}
+.divider {
+  margin: 20px 0px;
+  width: 50px;
+  border: 1px solid #928a8a;
+}
+.bottomdashboarditems {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+}
+.bottomdashboarditems div {
+  width: 25%;
+  border-right: 1px solid #928a8a;
+  text-align: center;
+}
+
+.bottomdashboarditems div:last-child {
+  border: none;
+}
+.bottomdashboarditems div:last-child img {
+  width: 25px;
+  border-radius: 50%;
+  height: 25px;
+}
+.notificationcount {
+  position: absolute;
+  top: -8px;
+  left: 21px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 25px;
+}
+.closeicon {
+  position: absolute;
+  right: -10px;
+  top: 60px;
+  width: 30px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+}
+.closeicon div {
+  background-image: url("assets/left_arrow.png");
+  background-repeat: no-repeat;
+  height: 100%;
+  position: relative;
+  top: 5px;
+}
