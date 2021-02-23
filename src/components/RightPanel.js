@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     "& > .leftgrid": {
       borderRight: "1px solid #f1e5e5",
       borderTop: "1px solid #f1e5e5",
-      height: "50vh",
+
       padding: "12px",
       overflow: "auto"
     },
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     },
     "& > .rightgrid": {
       borderTop: "1px solid #f1e5e5",
-      height: "50vh",
+
       padding: "12px",
       overflow: "auto"
     },
@@ -52,7 +52,8 @@ const useStyles = makeStyles({
   }
 });
 
-export default function RightPanel() {
+export default function RightPanel(props) {
+  console.log(props.todos);
   const classes = useStyles();
   return (
     <Grid className={classes.RightPanel} container>
@@ -82,7 +83,11 @@ export default function RightPanel() {
       </Grid>
       <Grid item xs={8} className="leftgrid">
         <h5>To-Do lists</h5>
-        <Todo />
+        <Todo
+          todos={props.todos}
+          addtodo={props.addtodo}
+          removetodo={props.removetodo}
+        />
       </Grid>
       <Grid item xs={4} className="rightgrid">
         <h5>Screenshots</h5>
