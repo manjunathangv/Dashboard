@@ -11,6 +11,7 @@ import download from "../assets/download.png";
 import notification from "../assets/notification.png";
 import settings from "../assets/settings.png";
 import profile from "../assets/profile.jpg";
+import sidebar_overlay from "../assets/sidebar_overlay.png";
 
 import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles({
@@ -18,7 +19,7 @@ const useStyles = makeStyles({
     height: "100vh",
     width: "20vw",
     backgroundColor: "#382f9c",
-    backgroundImage: 'url("assets/sidebar_overlay.png")',
+    backgroundImage: `url(${sidebar_overlay})`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "left bottom",
     position: "relative",
