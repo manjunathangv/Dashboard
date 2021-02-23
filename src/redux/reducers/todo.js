@@ -1,54 +1,37 @@
-import { ADD_TODO, TOGGLE_TODO } from "../constants/constants";
+import { ADD_TODO, REMOVE_TODO } from "../constants/constants";
 
 const initialState = {
   todos: [
     {
       date: 28,
-      month: "may",
-      title: "Revamp Instgram app"
+      month: "May",
+      title: "Revamp Facebook app"
     },
     {
       date: 29,
-      month: "may",
+      month: "Apr",
       title: "Revamp Instgram app"
     },
     {
       date: 30,
       month: "Jan",
-      title: "Revamp Instgram app"
+      title: "Revamp Phonepe app"
     }
-  ],
-  allIds: [],
-  byIds: {}
+  ]
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {
-      const { id, content } = action.payload;
       return {
         ...state,
-        allIds: [...state.allIds, id],
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            content,
-            completed: false
-          }
-        }
+        todos: [...state.todos, action.payload]
       };
     }
-    case TOGGLE_TODO: {
-      const { id } = action.payload;
+    case REMOVE_TODO: {
       return {
         ...state,
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            ...state.byIds[id],
-            completed: !state.byIds[id].completed
-          }
-        }
+        todos: state.todos.filter((item, index) => index !== action.payload.id)
       };
     }
     default:
