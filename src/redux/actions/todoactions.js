@@ -1,18 +1,11 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "../constants/constants";
+import { ADD_TODO, REMOVE_TODO } from "../constants/constants";
 
-let nextTodoId = 0;
-
-export const addTodo = content => ({
+export const addTodo = todo => ({
   type: ADD_TODO,
-  payload: {
-    id: ++nextTodoId,
-    content
-  }
+  payload: todo
 });
 
-export const toggleTodo = id => ({
-  type: TOGGLE_TODO,
+export const removeTodo = id => ({
+  type: REMOVE_TODO,
   payload: { id }
 });
-
-export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
