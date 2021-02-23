@@ -22,7 +22,10 @@ const useStyles = makeStyles({
     "& > .buttoncontainer": {
       display: "flex",
       justifyContent: "space-between",
-      padding: "19px 32px"
+      padding: "19px 32px",
+      "& button": {
+        height: '35px',
+      }
     },
     "& > .rightgrid": {
       borderTop: "1px solid #f1e5e5",
@@ -52,8 +55,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function RightPanel(props) {
-  console.log(props.todos);
+export default function RightPanel() {
   const classes = useStyles();
   return (
     <Grid className={classes.RightPanel} container>
@@ -73,9 +75,8 @@ export default function RightPanel(props) {
       <Grid item xs={8} className="leftgrid">
         <h5>
           Timesheet <Button>View Full Sheet</Button>
-          <img src={moreicon} alt="more"></img>
-          <Tabletimesheet />
-        </h5>
+          <img src={moreicon} alt="more"></img></h5>
+        <Tabletimesheet />
       </Grid>
       <Grid item xs={4} className="rightgrid">
         <h5>Report</h5>
@@ -83,11 +84,7 @@ export default function RightPanel(props) {
       </Grid>
       <Grid item xs={8} className="leftgrid">
         <h5>To-Do lists</h5>
-        <Todo
-          todos={props.todos}
-          addtodo={props.addtodo}
-          removetodo={props.removetodo}
-        />
+        <Todo/>
       </Grid>
       <Grid item xs={4} className="rightgrid">
         <h5>Screenshots</h5>
