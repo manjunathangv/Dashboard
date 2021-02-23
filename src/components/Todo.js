@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
-import moreicon from "../assets/more.png";
+import { useSelector, useDispatch } from 'react-redux'
+import { addTodo, removeTodo } from '../redux/actions/todoactions';
+import { Input } from "@material-ui/core";
+//import moreicon from "../assets/more.png";
 const useStyles = makeStyles({
   report: {
     padding: "20px 10px 0px",
@@ -57,25 +60,38 @@ const useStyles = makeStyles({
     }
   },
   AddTodos: {
-    position: "absolute",
-    right: "0",
-    top: "-17px",
     fontSize: "11px",
     background: "#e9e8f4",
-    padding: "2px",
+    padding: "10px 2px 2px",
     borderRadius: "4px",
     color: "#3e359f",
-    cursor: "pointer"
+    cursor: "pointer",
+    width: '80px',
+    height: '20px',
+    textAlign:'center'
+  },
+  addtodocontainer: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  addinput: {
+    marginBottom: '20px',
+    marginRight: '20px'
   }
 });
-export default function Todo(props) {
-  console.log(props.todos);
-  const { todos, addtodo, removetodo } = props;
+export default function Todo() {
   const classes = useStyles();
+  const { todos } = useSelector(state => state.todos);
+  const dispatch = useDispatch();
+  const [todo, settodo] = useState("");
+
   return (
     <div className={classes.report}>
-      <div className={classes.AddTodos} onClick={addtodo}>
-        + AddTodo
+      <div className={classes.addtodocontainer}>
+        <Input className={classes.addinput} value={todo} placeholder="Add new todo" onChange={(e) => settodo(e.target.value)} />
+        <div className={classes.AddTodos} onClick={() => {dispatch(addTodo({ date: new Date().getDate(), month: "Feb", title: todo })); settodo('')}}>
+          + AddTodo
+      </div>
       </div>
       {(todos.length &&
         todos.map((todo, index) => {
@@ -88,12 +104,7 @@ export default function Todo(props) {
               <div className="todoCard">
                 <h2>{todo.title}</h2>
                 <span>Today</span>
-                <div
-                  className="remove"
-                  onClick={e => {
-                    removetodo(index);
-                  }}
-                >
+                <div className="remove" onClick={() => dispatch(removeTodo(index))}>
                   X
                 </div>
               </div>
